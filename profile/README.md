@@ -12,16 +12,16 @@ images, so the installer builds it from source.
 
 ## Installing it
 
-On one Linux machine with git and rootless podman or Docker, each with its compose. EiN alone:
+On one Linux machine with git and rootless podman or Docker, each with its compose. EiN Core, the bare bones installation:
 
 ```bash
 curl -fsSL https://einhq.eu/install.sh | bash
 ```
 
-Or the whole Archive, with the media service, the assistant's language model and the Archive module:
+Or EiN Archive, the full Archive installation with the media service and the chat:
 
 ```bash
-curl -fsSL https://einhq.eu/install.sh | bash -s -- --ems --llm --module archive
+curl -fsSL https://einhq.eu/install.sh | bash -s -- --ems --llm --module archive --module assistant
 ```
 
 Either checks the machine against the [system requirements](https://einhq.eu/#requirements) and
