@@ -5,32 +5,31 @@ commands are nodes in one tree, each with an owner and permissions. You work on 
 interface or a real bash shell, pipelines act on every change, and modules decide what it is for.
 The Archive module makes it a family archive: people and their family tree, photos and videos,
 places, and an assistant that answers questions about them. More at
-[einhq.github.io](https://einhq.github.io).
+[einhq.eu](https://einhq.eu).
 
 **EiN is work in progress.** It runs, but nothing is released yet and there are no published
 images, so the installer builds it from source.
 
 ## Installing it
 
-On one Linux machine with git and rootless podman or Docker, each with its compose:
+On one Linux machine with git and rootless podman or Docker, each with its compose. EiN alone:
 
 ```bash
-curl -fsSL https://einhq.github.io/install.sh | bash
+curl -fsSL https://einhq.eu/install.sh | bash
 ```
 
-It checks the machine against the
-[system requirements](https://einhq.github.io/#start) and stops if something is missing, then
-fetches [deploy](https://github.com/einhq/deploy) into `~/ein`, builds and starts EiN and its
-database, and prints the admin password. The media service, the assistant's language model and the
-modules are options, at the install or any time after with `~/ein/setup.sh`:
+Or the whole Archive, with the media service, the assistant's language model and the Archive module:
 
 ```bash
-curl -fsSL https://einhq.github.io/install.sh | bash -s -- --ems --llm --module archive
+curl -fsSL https://einhq.eu/install.sh | bash -s -- --ems --llm --module archive
 ```
 
-`--ems` is the media service, which the Archive needs: an image of about 30 GB, with the NVIDIA
-card if there is one. `--llm` is the assistant's model, or a hosted provider set in `~/ein/.env`.
-Running `~/ein/setup.sh` again updates everything. Port 8080 is the web interface and 2222 SSH and
+Either checks the machine against the [system requirements](https://einhq.eu/#requirements) and
+stops if something is missing, then fetches [deploy](https://github.com/einhq/deploy) into `~/ein`,
+builds and starts, and prints the admin password. `--ems` is the media service, which the Archive
+needs: an image of about 30 GB, with the NVIDIA card if there is one. `--llm` is the assistant's
+model, or a hosted provider set in `~/ein/.env`. The options also go to `~/ein/setup.sh` any time
+after, and running it again updates everything. Port 8080 is the web interface and 2222 SSH and
 SFTP; put an HTTPS proxy in front of EiN.
 
 ## The repositories
